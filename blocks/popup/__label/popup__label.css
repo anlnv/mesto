@@ -1,0 +1,10 @@
+.popup__label {
+    margin: 30px 36px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 780px) {
+    .popup__label {
+        margin: 30px 22px 0;
+    }
+}
