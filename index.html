@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
-  <title>Mesto</title>
+  <title>Место</title>
 </head>
 
 <body class="page">
@@ -18,59 +18,59 @@
         <img class="profile__avatar" src="./images/profile-photo.jpg" alt="фото профиля">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button">
+          <button type="button" class="profile__edit-button">
             <img class="profile__edit-button-img" src="./images/edit-button.svg" alt="кнопка редактирования">
           </button>
           <p class="profile__about">Исследователь океана</p>
         </div>
       </div>
-      <button class="profile__add-button">
+      <button type="button" class="profile__add-button">
         <img class="profile__add-button-img" src="./images/add-button.svg" alt="кнопка добавления">
       </button>
     </section>
     <section class="elements">
       <ul class="elements__table">
         <li class="element">
-          <img class="element__img" src="./images/elbrus.jpg" alt="фото Карачаевск">
+          <img class="element__img" src="./images/elbrus.jpg" alt="Эльбрус">
           <div class="element__info">
-            <p class="element__text">Эльбрус</p>
-            <button class="like"></button>
+            <h2 class="element__text">Эльбрус</h2>
+            <button type="button" class="like"></button>
           </div>
         </li>
         <li class="element">
-          <img class="element__img" src="./images/waterfall.jpg" alt="фото Карачаевск">
+          <img class="element__img" src="./images/waterfall.jpg" alt="Водопады Агуры">
           <div class="element__info">
-            <p class="element__text">Водопады Агуры</p>
-            <button class="like"></button>
+            <h2 class="element__text">Водопады Агуры</h2>
+            <button type="button" class="like"></button>
           </div>
         </li>
         <li class="element">
-          <img class="element__img" src="./images/chelyaba.jpg" alt="фото Карачаевск">
+          <img class="element__img" src="./images/chelyaba.jpg" alt="Челябинская область">
           <div class="element__info">
-            <p class="element__text">Челябинская область</p>
-            <button class="like"></button>
+            <h2 class="element__text">Челябинская область</h2>
+            <button type="button" class="like"></button>
           </div>
         </li>
         <li class="element">
-          <img class="element__img" src="./images/uvildy.jpg" alt="фото Карачаевск">
+          <img class="element__img" src="./images/uvildy.jpg" alt="озеро Увильды">
           <div class="element__info">
-            <p class="element__text">Увильды</p>
-            <button class="like">
+            <h2 class="element__text">Увильды</h2>
+            <button type="button" class="like">
             </button>
           </div>
         </li>
         <li class="element">
-          <img class="element__img" src="./images/zuratkul.jpg" alt="фото Карачаевск">
+          <img class="element__img" src="./images/zuratkul.jpg" alt="Зюраткуль">
           <div class="element__info">
-            <p class="element__text">Зюраткуль</p>
-            <button class="like"></button>
+            <h2 class="element__text">Зюраткуль</h2>
+            <button type="button" class="like"></button>
           </div>
         </li>
         <li class="element">
-          <img class="element__img" src="./images/iremel.jpg" alt="фото Карачаевск">
+          <img class="element__img" src="./images/iremel.jpg" alt="гора Иремель">
           <div class="element__info">
-            <p class="element__text">Иремель</p>
-            <button class="like"></button>
+            <h2 class="element__text">Иремель</h2>
+            <button type="button" class="like"></button>
           </div>
         </li>
       </ul>
@@ -84,18 +84,20 @@
       <button type="button" class="popup__button-close">
         <img class="popup__button-close-img" src="./images/button-popup-close.svg" alt="картинка закрытия попапа">
       </button>
-      <form class="popup__form" action="#" method="post" novalidate>
+      <div class="popup__menu">
         <h3 class="popup__title">Редактировать профиль</h3>
-        <label for="name" class="popup__label">
-          <input name="name" id="name" class="popup__input"  required>
-        </label>
-        <label for="about" class="popup__label">
-          <input name="about" id="about" class="popup__input" required>
-        </label>
-        <button type="submit" class="popup__button-save">Сохранить</button>
-      </form>
+        <form name="name" class="popup__form" action="#" method="post" novalidate>
+          <label for="name" class="popup__label">
+            <input name="name" id="name" class="popup__input"  required>
+          </label>
+          <label for="about" class="popup__label">
+            <input name="about" id="about" class="popup__input" required>
+          </label>
+          <button type="submit" class="popup__button-save">Сохранить</button>
+        </form>
+    </div>
     </div>
   </section>
+  <script src="./scripts/index.js"></script>
 </body>
-<script src="./index.js"></script>
 </html>

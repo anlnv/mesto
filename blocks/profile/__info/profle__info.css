@@ -1,11 +1,10 @@
 .profile__info {
     display: grid;
     grid-template-columns: auto auto;
-    row-gap: 7px;
+    row-gap: 0px;
     column-gap: 18px;
     max-width: 336px;
-    margin: 22px 0 0 30px;
-    height: 73px;
+    margin: 22px 0 10px 30px;
     padding: 0;
 }
 
@@ -14,8 +13,7 @@
     .profile__info {
         grid-template-columns: 1fr 18px 189px 18px 1fr;
         column-gap: 10px;
-        row-gap: 15px;
-        height: 54px;
+        row-gap: 8px;
         max-width: 100%;
         margin: 26px 0 0;
         align-items: baseline;
