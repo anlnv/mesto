@@ -30,72 +30,66 @@
     </section>
     <section class="elements">
       <ul class="elements__table">
-        <li class="element">
-          <img class="element__img" src="./images/elbrus.jpg" alt="Эльбрус">
-          <div class="element__info">
-            <h2 class="element__text">Эльбрус</h2>
-            <button type="button" class="like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__img" src="./images/waterfall.jpg" alt="Водопады Агуры">
-          <div class="element__info">
-            <h2 class="element__text">Водопады Агуры</h2>
-            <button type="button" class="like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__img" src="./images/chelyaba.jpg" alt="Челябинская область">
-          <div class="element__info">
-            <h2 class="element__text">Челябинская область</h2>
-            <button type="button" class="like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__img" src="./images/uvildy.jpg" alt="озеро Увильды">
-          <div class="element__info">
-            <h2 class="element__text">Увильды</h2>
-            <button type="button" class="like">
-            </button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__img" src="./images/zuratkul.jpg" alt="Зюраткуль">
-          <div class="element__info">
-            <h2 class="element__text">Зюраткуль</h2>
-            <button type="button" class="like"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img class="element__img" src="./images/iremel.jpg" alt="гора Иремель">
-          <div class="element__info">
-            <h2 class="element__text">Иремель</h2>
-            <button type="button" class="like"></button>
-          </div>
-        </li>
+        <template id="card-template">
+          <li class="element">
+            <button type="button" class="delete-button"></button>
+            <img src="#" alt="#" class="element__img">
+            <div class="element__info">
+              <h2 class="element__text"></h3>
+              <button type="button" class="like"></button>
+            </div>
+        </template>
       </ul>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2023 Mesto Russia</p>
   </footer>
-  <section class="popup" id="popup__edit-avatar">
+  <section class="popup" id="profile-popup">
     <div class="popup__container">
       <button type="button" class="popup__button-close">
         <img class="popup__button-close-img" src="./images/button-popup-close.svg" alt="картинка закрытия попапа">
       </button>
       <div class="popup__menu">
         <h3 class="popup__title">Редактировать профиль</h3>
-        <form name="name" class="popup__form" action="#" method="post" novalidate>
+        <form id="profile-form" name="name" class="popup__form" action="#" method="post" novalidate>
           <label for="name" class="popup__label">
             <input name="name" id="name" class="popup__input"  required>
           </label>
           <label for="about" class="popup__label">
             <input name="about" id="about" class="popup__input" required>
           </label>
-          <button type="submit" class="popup__button-save">Сохранить</button>
+          <button id="#edit-save-button" type="submit" class="popup__button-save">Сохранить</button>
         </form>
     </div>
+    </div>
+  </section>
+  <section class="popup" id="create-popup">
+    <div class="popup__container">
+      <button type="button" class="popup__button-close">
+        <img class="popup__button-close-img" src="./images/button-popup-close.svg" alt="картинка закрытия попапа">
+      </button>
+      <div class="popup__menu">
+        <h3 class="popup__title">Новое место</h3>
+        <form id="create-form" name="card" class="popup__form" action="#" method="post" novalidate>
+          <label for="title" class="popup__label">
+            <input name="title" id="title" class="popup__input" required>
+          </label>
+          <label for="link" class="popup__label">
+            <input name="link" id="link" class="popup__input" required>
+          </label>
+          <button id="create-card" type="submit" class="popup__button-save">Создать</button>
+        </form>
+    </div>
+    </div>
+  </section>
+  <section class="popup popup_dark" id="zoom-popup">
+    <div class="popup__container popup__container_img">
+      <button type="button" class="popup__button-close">
+        <img class="popup__button-close-img" src="./images/button-popup-close.svg" alt="картинка закрытия попапа">
+      </button>
+      <img class="popup__img" alt="#" src="#">
+      <h4 class="popup__img-title"></h4>
     </div>
   </section>
   <script src="./scripts/index.js"></script>
