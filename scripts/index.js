@@ -30,7 +30,7 @@ const cardLink = document.querySelector('#link');
 
 function openPopup(elem) {
     elem.classList.add('popup_opened');
-    closeByEscBtn(elem);
+    document.addEventListener('keydown', closeByEscBtn);
 }
 
 function insertProfile(evt) {
@@ -44,9 +44,8 @@ function insertProfile(evt) {
 
 function closePopup(elem) {
     elem.classList.remove('popup_opened');
-    document.removeEventListener('keydown', function() {
-      closePopup(elem);
-})};
+    document.removeEventListener('keydown', closeByEscBtn);
+  };
 
 profileEdit.addEventListener('click', function() {
     openPopup(profilePopup);
@@ -137,10 +136,9 @@ function closePopupOverlay() {
 closePopupOverlay();
 
   //закрытие попапа нажатием на Esc
-  function closeByEscBtn(popupElement){
-    document.addEventListener('keydown', (evt) => {
+  const closeByEscBtn = (evt) => {
       if(evt.key == 'Escape') {
-        closePopup(popupElement);
+        const popupOpened = document.querySelector('.popup_opened');
+        closePopup(popupOpened);
       }
-    });
-  };
+    }
