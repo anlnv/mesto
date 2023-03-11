@@ -1,20 +1,34 @@
 //валидации 
-const hiddenError = (errorElement, options) => {
+/*const hiddenError = (errorElement, options) => {
     errorElement.textContent = '';
     errorElement.classList.remove(options.inputErrorClass);
     const inputLabel = errorElement.closest(options.inputLabelSelector);
     const inputElement = inputLabel.querySelector(options.inputSelector);
     inputElement.classList.remove(options.inputInvalidClass);
+  };*/
+
+  const hiddenError = (inputElement, errorElement, options) => {
+    errorElement.textContent = '';
+    errorElement.classList.remove(options.inputErrorClass);
+    inputElement.classList.remove(options.inputInvalidClass);
   };
   
-  const showError = (errorElement, message, options) => {
+  /*const showError = (errorElement, message, options) => {
     errorElement.textContent = message;
     errorElement.classList.add(options.inputErrorClass);
     const inputLabel = errorElement.closest(options.inputLabelSelector);
     const inputElement = inputLabel.querySelector(options.inputSelector);
     inputElement.classList.add(options.inputInvalidClass);
     console.log(options.inputInvalidClass);
-  };
+  };*/
+
+  const showError = (inputElement, message, options) => { 
+    const inputLabelElement = inputElement.closest(options.inputLabelSelector); 
+    const errorElement = inputLabelElement.querySelector(options.inputErrorSelector); 
+    errorElement.textContent = message; 
+    errorElement.classList.add(options.inputErrorClass); 
+    inputElement.classList.add(options.inputInvalidClass); 
+  }; 
   
   //проверяем инпут на валидность и показываем(скрываем) ошибку 
   const setInputState = (inputElement, isValid, options) => {
@@ -22,9 +36,9 @@ const hiddenError = (errorElement, options) => {
     const inputLabelElement = inputElement.closest(inputLabelSelector);
     const errorElement = inputLabelElement.querySelector(inputErrorSelector);
     if (isValid) {
-        hiddenError(errorElement, options);
+        hiddenError(inputElement, errorElement, options); 
     } else {
-        showError(errorElement, inputElement.validationMessage, options);
+        showError(inputElement, inputElement.validationMessage, options);
     }
   };
   

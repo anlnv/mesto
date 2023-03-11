@@ -3,13 +3,9 @@ const profileForm = profilePopup.querySelector('#profile-form');
 const buttonsClose = document.querySelectorAll('.popup__button-close');
 const profileEdit = document.querySelector('.profile__edit-button');
 
-
 const cardElement = document.querySelector('#create-popup');
 const buttonAdd = document.querySelector('.profile__add-button');
-const createForm = document.querySelector('#create-form');
-const createFormLink = document.querySelector('#link');
-const createFormTitle = document.querySelector('#title');
-
+const formCreate = document.querySelector('#create-form');
 
 const profileElement = document.querySelector('.profile');
 const profileName = profileElement.querySelector('.profile__name');
@@ -17,9 +13,9 @@ const profileAbout = profileElement.querySelector('.profile__about');
 const profileFormName = document.querySelector('#name');
 const profileFormAbout = document.querySelector('#about');
 
-const zoomPopup = document.querySelector('#zoom-popup');
-const zoomImage = document.querySelector('.popup__img');
-const zoomImageTitle = document.querySelector('.popup__img-title');
+const popupZoom = document.querySelector('#zoom-popup');
+const imageZoom = document.querySelector('.popup__img');
+const imageTitleZoom = document.querySelector('.popup__img-title');
 
 const cardsContainer = document.querySelector('.elements__table');
 const cardsTemplate = document.querySelector('#card-template').content;
@@ -98,16 +94,18 @@ function addNewCard(evt){
   evt.preventDefault();
   cardsContainer.prepend(createCard({name: cardName.value, link: cardLink.value}));
   closePopup(cardElement);
-  cardElement.querySelector('.popup__form').reset();
+  formCreate.reset();
+  evt.submitter.classList.add('popup__button-save_inactive');
+  evt.submitter.disabled = true; 
 };
 
-createForm.addEventListener('submit',addNewCard);
+formCreate.addEventListener('submit',addNewCard);
 
 function openPopupZoomImage(name, link) {
-  zoomImage.src = link; 
-  zoomImage.alt = name;
-  zoomImageTitle.textContent = name;
-  openPopup(zoomPopup);
+  imageZoom.src = link; 
+  imageZoom.alt = name;
+  imageTitleZoom.textContent = name;
+  openPopup(popupZoom);
 };
 
 const validationOptions = {
