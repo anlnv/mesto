@@ -75,7 +75,6 @@ const hiddenError = (errorElement, options) => {
     labelInvalidClass,
   }) => {
     const forms = Array.from(document.querySelectorAll(formSelector));
-    console.log(forms);
     forms.forEach(form => {
         setEventListeners(form, {
           submitSelector,
