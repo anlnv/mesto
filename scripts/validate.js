@@ -1,16 +1,19 @@
 //валидации 
 const hiddenError = (errorElement, options) => {
-    errorElement.innerText = '';
+    errorElement.textContent = '';
     errorElement.classList.remove(options.inputErrorClass);
-    const inputLabelElement = errorElement.closest(options.inputLabelSelector);
-    inputLabelElement.classList.remove(options.labelInvalidClass);
+    const inputLabel = errorElement.closest(options.inputLabelSelector);
+    const inputElement = inputLabel.querySelector(options.inputSelector);
+    inputElement.classList.remove(options.inputInvalidClass);
   };
   
   const showError = (errorElement, message, options) => {
-    errorElement.innerText = message;
+    errorElement.textContent = message;
     errorElement.classList.add(options.inputErrorClass);
-    const inputLabelElement = errorElement.closest(options.inputLabelSelector);
-    inputLabelElement.classList.add(options.labelInvalidClass);
+    const inputLabel = errorElement.closest(options.inputLabelSelector);
+    const inputElement = inputLabel.querySelector(options.inputSelector);
+    inputElement.classList.add(options.inputInvalidClass);
+    console.log(options.inputInvalidClass);
   };
   
   //проверяем инпут на валидность и показываем(скрываем) ошибку 
@@ -72,7 +75,7 @@ const hiddenError = (errorElement, options) => {
     inputErrorSelector,
     inputErrorClass,
     disabledButtonClass,
-    labelInvalidClass,
+    inputInvalidClass,
   }) => {
     const forms = Array.from(document.querySelectorAll(formSelector));
     forms.forEach(form => {
@@ -83,31 +86,7 @@ const hiddenError = (errorElement, options) => {
           inputErrorSelector,
           inputErrorClass,
           disabledButtonClass,
-          labelInvalidClass,
+          inputInvalidClass,
         });
     });
   };
-  
-  //закрытие попапа кликом на оверлей
-  function closePopupOverlay(overlaysElement) {
-    overlaysElement.forEach(overlay => {
-      const popup = overlay.querySelector('.popup__menu');
-      overlay.addEventListener('click', (e) => {
-        const withinBoundaries = e.composedPath().includes(popup);
-        if (!withinBoundaries){
-          closePopup(overlay);
-        }
-    });
-  })};
-  
-  const overlaysElement = Array.from(document.querySelectorAll('.popup'));
-  closePopupOverlay(overlaysElement);
-  
-    //закрытие попапа нажатием на Esc
-    function closeByEscBtn(popupElement){
-      document.addEventListener('keydown', (evt) => {
-        if(evt.key == 'Escape') {
-          closePopup(popupElement);
-        }
-      });
-    };
