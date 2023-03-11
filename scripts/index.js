@@ -27,6 +27,7 @@ const cardsContainer = document.querySelector('.elements__table');
 
 function openPopup(elem) {
     elem.classList.add('popup_opened');
+    closeByEscBtn(elem);
 }
 
 function insertProfile(evt) {
@@ -40,6 +41,7 @@ function insertProfile(evt) {
 
 function closePopup(elem) {
     elem.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeByEscBtn(elem));
 }
 
 profileEdit.addEventListener('click', function() {
@@ -103,3 +105,16 @@ function openPopupZoomImage(name, link) {
   zoomImageTitle.textContent = name;
   openPopup(zoomPopup);
 };
+
+const validationOptions = {
+  formSelector: '.popup__form',
+  submitSelector: '.popup__button-save',
+  inputSelector: '.popup__input',
+  inputLabelSelector: '.popup__label',
+  inputErrorSelector: '.popup__input-error',
+  inputErrorClass: 'popup__input-error_active',
+  disabledButtonClass: 'popup__button-save_inactive',
+  labelInvalidClass: 'popup__label_invalid',
+};
+
+enableValidation(validationOptions);

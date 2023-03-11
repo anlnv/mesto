@@ -24,3 +24,11 @@
 .popup__button-save:hover {
     opacity: 0.8;
 }
+
+.popup__button-save:disabled {
+    color: black;
+    background-color: white;
+    pointer-events: none;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    opacity: 0.2;
+}
