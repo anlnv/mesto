@@ -1,8 +1,11 @@
 class FormValidator {
-    constructor(formElement, options){
+    constructor(options, formElement) {
         this._formElement = formElement;
         this._options = options;
+        this._inputList = Array.from(this._formElement.querySelectorAll(this._options.inputSelector));
+        this._submitElement = this._formElement.querySelector(this._options.submitSelector); 
     }
+   
 
     enableValidation = () => {
         this._setEventListeners();
@@ -54,15 +57,13 @@ class FormValidator {
       }
   
     _setEventListeners = () => {
-        const submitElement = this._formElement.querySelector(this._options.submitSelector);
-        const inputs = Array.from(this._formElement.querySelectorAll(this._options.inputSelector));
-        inputs.forEach(inputElement => {
+        this._inputList.forEach(inputElement => {
             inputElement.addEventListener('input', () => {
                 this._toggleInputState(inputElement);
-                this._toggleButtonState(inputs, submitElement);
+                this._toggleButtonState(this._inputList, this._submitElement);
             });
         });
-    this._toggleButtonState(inputs, submitElement);
+        this._toggleButtonState(this._inputList, this._submitElement);
   }
   
   //вызывает setInputstate с значением того, валидный или не валидный инпут
@@ -71,6 +72,12 @@ class FormValidator {
         this._setInputState(inputElement, isValid);
   }
 
+  resetValidation() {
+    this._disableButton(this._submitElement);
+    this._inputList.forEach((inputElement) => {
+      this._hiddenError(inputElement);
+    });
+  };
 }
 
 export default FormValidator;

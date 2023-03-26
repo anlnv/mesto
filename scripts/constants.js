@@ -24,3 +24,5 @@ const initialCards = [
       link: './images/iremel.jpg'
     }
   ];
+
+  export default initialCards;
