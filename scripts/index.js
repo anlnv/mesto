@@ -29,6 +29,8 @@ const cardLink = document.querySelector('#link');
 function openPopup(elem) {
     elem.classList.add('popup_opened');
     document.addEventListener('keydown', closeByEscBtn);
+    newCardValidation.resetValidation();
+    profileValidation.resetValidation();
 };
 
 function insertProfile(evt) {
@@ -43,8 +45,6 @@ function insertProfile(evt) {
 function closePopup(elem) {
     elem.classList.remove('popup_opened');
     document.removeEventListener('keydown', closeByEscBtn);
-    newCardValidation.resetValidation();
-    profileValidation.resetValidation();
   };
 
 profileEdit.addEventListener('click', function() {
