@@ -29,8 +29,6 @@ const cardLink = document.querySelector('#link');
 function openPopup(elem) {
     elem.classList.add('popup_opened');
     document.addEventListener('keydown', closeByEscBtn);
-    newCardValidation.resetValidation();
-    profileValidation.resetValidation();
 };
 
 function insertProfile(evt) {
@@ -62,12 +60,14 @@ profileEdit.addEventListener('click', function() {
     openPopup(profilePopup);
     profileFormName.value = profileName.textContent;
     profileFormAbout.value = profileAbout.textContent;
+    profileValidation.resetValidation();
 });
 
 profileForm.addEventListener('submit', insertProfile);
 
 buttonAdd.addEventListener('click', function() {
     openPopup(cardElement);
+    newCardValidation.resetValidation();
 });
 
 //создание карточек класса Card
@@ -135,7 +135,6 @@ const validationOptions = {
   disabledButtonClass: 'popup__button-save_inactive',
   inputInvalidClass: 'popup__input_invalid',
 };
-console.log(formCreate, profileForm);
 const profileValidation = new FormValidator(validationOptions, profileForm);
 const newCardValidation = new FormValidator(validationOptions, formCreate);
 profileValidation.enableValidation();

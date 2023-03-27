@@ -36,23 +36,23 @@ class FormValidator {
         }
     }
 
-    _enableButton = (submitElement) => {
-        submitElement.removeAttribute('disabled');
-        submitElement.classList.remove(this._options.disabledButtonClass);
+    _enableButton = () => {
+        this._submitElement.removeAttribute('disabled');
+        this._submitElement.classList.remove(this._options.disabledButtonClass);
       }
       
-    _disableButton = (submitElement) => {
-        submitElement.setAttribute('disabled', true);
-        submitElement.classList.add(this._options.disabledButtonClass);
+    _disableButton = () => {
+      this._submitElement.setAttribute('disabled', true);
+      this._submitElement.classList.add(this._options.disabledButtonClass);
       }
 
     //устанавливает/снимает disabled с кнопки сабмита, если все инпуты валидны/хотя бы один невалидный 
-    _toggleButtonState = (inputs, submitElement) => {
-        const formIsValid = inputs.every(inputElement => inputElement.validity.valid);
+    _toggleButtonState = () => {
+        const formIsValid = this._inputList.every(inputElement => inputElement.validity.valid);
         if (formIsValid) {
-            this._enableButton(submitElement);
+            this._enableButton();
         } else {
-            this._disableButton(submitElement);
+            this._disableButton();
         }
       }
   
@@ -60,10 +60,10 @@ class FormValidator {
         this._inputList.forEach(inputElement => {
             inputElement.addEventListener('input', () => {
                 this._toggleInputState(inputElement);
-                this._toggleButtonState(this._inputList, this._submitElement);
+                this._toggleButtonState();
             });
         });
-        this._toggleButtonState(this._inputList, this._submitElement);
+        this._toggleButtonState();
   }
   
   //вызывает setInputstate с значением того, валидный или не валидный инпут
@@ -73,7 +73,7 @@ class FormValidator {
   }
 
   resetValidation() {
-    this._disableButton(this._submitElement);
+    this._disableButton();
     this._inputList.forEach((inputElement) => {
       this._hiddenError(inputElement);
     });
