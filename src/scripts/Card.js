@@ -1,9 +1,9 @@
 class Card {
-    constructor(text, link, templateSelector, openPopupZoomImage){
-        this._text = text;
+    constructor(name, link, templateSelector, {handleCardClick}){
+        this._name = name;
         this._link = link;
         this._templateSelector = templateSelector;
-        this._openPopupZoomImage = openPopupZoomImage;
+        this._handleCardClick = handleCardClick;
     }
 
     //получаем разметку карточки для дальнейшего наполнения и использования в методах
@@ -25,8 +25,8 @@ class Card {
         this._deleteButton = this._element.querySelector('.delete-button'); 
 
         this._elementImage.src = this._link; 
-        this._elementImage.alt = this._text; 
-        this._elementText.textContent = this._text;
+        this._elementImage.alt = this._name; 
+        this._elementText.textContent = this._name;
 
        this._setEventListeners();
 
@@ -43,7 +43,7 @@ class Card {
     }
 
     _setEventListeners = () => {
-        this._elementImage.addEventListener('click', () => this._openPopupZoomImage(this._text, this._link));
+        this._elementImage.addEventListener('click', this._handleCardClick);
         this._likeButton.addEventListener('click', this._likeCard);
         this._deleteButton.addEventListener('click', this._deleteCard);
     }

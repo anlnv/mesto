@@ -10,22 +10,22 @@
 
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="./images/header-logo-white.svg" alt="логотип header">
+    <img class="header__logo" src="<%=require('./images/header-logo-white.svg')%>" alt="логотип header">
   </header>
   <main class="content">
     <section class="profile">
       <div class="profile__personal">
-        <img class="profile__avatar" src="./images/profile-photo.jpg" alt="фото профиля">
+        <img class="profile__avatar" src="<%=require('./images/profile-photo.jpg')%>" alt="фото профиля">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button type="button" class="profile__edit-button">
-            <img class="profile__edit-button-img" src="./images/edit-button.svg" alt="кнопка редактирования">
+            <img class="profile__edit-button-img" src="<%=require('./images/edit-button.svg')%>" alt="кнопка редактирования">
           </button>
           <p class="profile__about">Исследователь океана</p>
         </div>
       </div>
       <button type="button" class="profile__add-button">
-        <img class="profile__add-button-img" src="./images/add-button.svg" alt="кнопка добавления">
+        <img class="profile__add-button-img" src="<%=require('./images/add-button.svg')%>" alt="кнопка добавления">
       </button>
     </section>
     <section class="elements">
@@ -49,7 +49,7 @@
   <section class="popup" id="profile-popup">
     <div class="popup__container">
       <button type="button" class="popup__button-close">
-        <img class="popup__button-close-img" src="./images/button-popup-close.svg" alt="картинка закрытия попапа">
+        <img class="popup__button-close-img" src="<%=require('./images/button-popup-close.svg')%>" alt="картинка закрытия попапа">
       </button>
       <div class="popup__menu">
         <h3 class="popup__title">Редактировать профиль</h3>
@@ -70,7 +70,7 @@
   <section class="popup" id="create-popup">
     <div class="popup__container">
       <button type="button" class="popup__button-close">
-        <img class="popup__button-close-img" src="./images/button-popup-close.svg" alt="картинка закрытия попапа">
+        <img class="popup__button-close-img" src="<%=require('./images/button-popup-close.svg')%>" alt="картинка закрытия попапа">
       </button>
       <div class="popup__menu">
         <h3 class="popup__title">Новое место</h3>
@@ -91,12 +91,11 @@
   <section class="popup popup_dark" id="zoom-popup">
     <div class="popup__container popup__container_img">
       <button type="button" class="popup__button-close">
-        <img class="popup__button-close-img" src="./images/button-popup-close.svg" alt="картинка закрытия попапа">
+        <img class="popup__button-close-img" src="<%=require('./images/button-popup-close.svg')%>" alt="картинка закрытия попапа">
       </button>
       <img class="popup__img" alt="#" src="#">
       <h4 class="popup__img-title"></h4>
     </div>
   </section>
-  <script src="./scripts/index.js" type="module" defer></script>
 </body>
 </html>
