@@ -6,8 +6,8 @@ class UserInfo {
 
     getUserInfo() {
         this._userInfo = {};
-        this._userInfo._name = this._name.textContent;
-        this._userInfo._info = this._info.textContent;
+        this._userInfo.name = this._name.textContent;
+        this._userInfo.info = this._info.textContent;
         return this._userInfo;
     }
 

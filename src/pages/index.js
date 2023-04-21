@@ -1,11 +1,11 @@
 import '../pages/index.css';
-import Card from '../scripts/Card.js';
-import FormValidator from "../scripts/FormValidator.js";
+import Card from '../components/Card.js';
+import FormValidator from "../components/FormValidator.js";
 import initialCards from '../utils/constants.js';
-import PopupWithForm from '../scripts/PopupWithForm.js';
-import PopupWithImage from '../scripts/PopupWithImage.js';
-import Section from '../scripts/Section.js';
-import UserInfo from '../scripts/UserInfo.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import Section from '../components/Section.js';
+import UserInfo from '../components/UserInfo.js';
 /*onst profilePopup = document.querySelector('#profile-popup');
 const profileForm = profilePopup.querySelector('#profile-form');
 const buttonsClose = document.querySelectorAll('.popup__button-close');*/
@@ -45,7 +45,7 @@ function createCard(el) {
 };
 
 //попап добавления карточки
-const createPopup = new PopupWithForm('#create-popup', {
+const popupAddCard = new PopupWithForm('#create-popup', {
   handleSubmitForm: (el) => {
     const card = new Card(
       cardName.value, cardLink.value,
@@ -55,10 +55,12 @@ const createPopup = new PopupWithForm('#create-popup', {
     cards.addItem(card.createCard());
   }})
 
-  createPopup.setEventListeners();
+ popupAddCard.setEventListeners();
 
   buttonAdd.addEventListener('click', (function() {
-    createPopup.open();}));
+   popupAddCard.open();
+   newCardValidation.enableValidation();
+  }));
 
 //попап профиля
 const userInfo = new UserInfo({
@@ -75,8 +77,8 @@ profilePopup.setEventListeners();
 profileEdit.addEventListener("click", (function() {
   profilePopup.open();
   const user = userInfo.getUserInfo();
-  profileFormName.value = user._name;
-  profileFormAbout.value = user._info;
+  profileFormName.value = user.name;
+  profileFormAbout.value = user.info;
   profileValidation.resetValidation();
   console.log(profilePopup._popupForm);
 }
@@ -94,7 +96,7 @@ const validationOptions = {
   inputInvalidClass: 'popup__input_invalid',
 };
 const profileValidation = new FormValidator(validationOptions, profilePopup._popupForm);
-const newCardValidation = new FormValidator(validationOptions, createPopup._popupForm);
+const newCardValidation = new FormValidator(validationOptions, popupAddCard._popupForm);
 profileValidation.enableValidation();
 newCardValidation.enableValidation(); 
 
