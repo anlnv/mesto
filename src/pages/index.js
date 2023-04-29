@@ -136,7 +136,6 @@ const avatarPopup = new PopupWithForm('#avatar-popup',
 
 avatarEdit.addEventListener("click", (function() {
   avatarPopup.open();
-  /*avatarValidation.resetValidation();*/
 }
 ));
 
