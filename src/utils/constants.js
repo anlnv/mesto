@@ -1,34 +1,11 @@
-import Elbrus from '../images/elbrus.jpg';
-import Agura from '../images/waterfall.jpg';
-import Chelik from '../images/chelyaba.jpg';
-import Uvildy from '../images/uvildy.jpg';
-import Zuratkul from '../images/zuratkul.jpg';
-import Iremel from '../images/iremel.jpg';
-const initialCards = [
-    {
-      name: 'Эльбрус',
-      link: Elbrus
-    },
-    {
-      name: 'Водопады Агуры',
-      link: Agura
-    },
-    {
-      name: 'Челябинская область',
-      link: Chelik
-    },
-    {
-      name: 'Увильды',
-      link: Uvildy
-    },
-    {
-      name: 'Зюраткуль',
-      link: Zuratkul
-    },
-    {
-      name: 'Иремель',
-      link: Iremel
-    }
-  ];
+const validationOptions = {
+  submitSelector: '.popup__button-save',
+  inputSelector: '.popup__input',
+  inputLabelSelector: '.popup__label',
+  inputErrorSelector: '.popup__input-error',
+  inputErrorClass: 'popup__input-error_active',
+  disabledButtonClass: 'popup__button-save_inactive',
+  inputInvalidClass: 'popup__input_invalid',
+};
 
-  export default initialCards;
+export default validationOptions;
